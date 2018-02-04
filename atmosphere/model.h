@@ -178,6 +178,8 @@ class DensityProfileLayer {
 
 class Model {
  public:
+  Model() {}
+  
   Model(
     // The wavelength values, in nanometers, and sorted in increasing order, for
     // which the solar_irradiance, rayleigh_scattering, mie_scattering,
