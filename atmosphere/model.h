@@ -285,6 +285,8 @@ class Model {
 
   unsigned int GetShader() const { return atmosphere_shader_; }
 
+  std::string getShaderSrc(bool precompute_illuminance) const;
+  
   void SetProgramUniforms(
       unsigned int program,
       unsigned int transmittance_texture_unit,

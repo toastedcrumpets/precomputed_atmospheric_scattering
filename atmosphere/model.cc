@@ -608,6 +608,14 @@ initialize them), as well as a vertex buffer object to render a full screen quad
 (used to render into the precomputed textures).
 */
 
+std::string Model::getShaderSrc(bool precompute_illuminance) const {
+  return
+  glsl_header_factory_({kLambdaR, kLambdaG, kLambdaB}) +
+  (precompute_illuminance ? "" : "#define RADIANCE_API_ENABLED\n") +
+  kAtmosphereShader;
+}
+
+
 Model::Model(
     const std::vector<double>& wavelengths,
     const std::vector<double>& solar_irradiance,
@@ -764,10 +772,7 @@ Model::Model(
       IRRADIANCE_TEXTURE_WIDTH, IRRADIANCE_TEXTURE_HEIGHT);
 
   // Create and compile the shader providing our API.
-  std::string shader =
-      glsl_header_factory_({kLambdaR, kLambdaG, kLambdaB}) +
-      (precompute_illuminance ? "" : "#define RADIANCE_API_ENABLED\n") +
-      kAtmosphereShader;
+  std::string shader = getShaderSrc(precompute_illuminance);
   const char* source = shader.c_str();
   atmosphere_shader_ = glCreateShader(GL_FRAGMENT_SHADER);
   glShaderSource(atmosphere_shader_, 1, &source, NULL);
