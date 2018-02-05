@@ -153,7 +153,7 @@ parameter):
 #include <functional>
 #include <string>
 #include <vector>
-
+  
 namespace atmosphere {
 
 // An atmosphere layer of width 'width' (in m), and whose density is defined as

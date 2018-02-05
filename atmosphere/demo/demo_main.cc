@@ -33,9 +33,9 @@
 application.
 */
 
+#include <glad/glad.h>
 #include "atmosphere/demo/demo.h"
 
-#include <glad/glad.h>
 #include <GL/freeglut.h>
 
 #include <memory>

@@ -37,9 +37,9 @@ independent of our atmosphere model. The only part which is related to it is the
 <code>InitModel</code> method).
 */
 
+#include <glad/glad.h>
 #include "atmosphere/demo/demo.h"
 
-#include <glad/glad.h>
 #include <GL/freeglut.h>
 
 #include <algorithm>
